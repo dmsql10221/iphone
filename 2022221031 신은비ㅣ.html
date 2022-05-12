@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html>
+    <title>애플덕후</title>
+    <style>
+        /* 초기화 */
+        * { 
+            margin: 0; padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+        a { text-decoration:none ; }
+        li { list-style: none; }
+    /* 기본 클래스 */
+        .pull-left { float: left; }
+        .pull-right { float:right; }
+
+    /* 페이지 */
+        body {
+            width: 1320px; margin: 0 auto;
+            background: #47464a;
+        }
+
+        #page-wrapper {
+            background: rgb(193, 191, 194);
+            margin: 300px 0; padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 6px rgba(100, 100, 100, 0.3);
+        }
+    /* 헤더 */
+        #main-header { padding: 40px 50px;
+            text-align: center;
+        }
+        .master-title { 
+            font-size: 30px; 
+            color: #181818;
+        }
+        .master-description {
+            font-size: 15px; font-weight: 500;
+            color: #383838;
+        }
+
+    /* 네비게이션 */
+
+        #main-navigation {
+            border-top: 1px solid #C8C8C8;
+            border-bottom: 1px solid #C8C8C8;
+            margin-bottom: 20px;
+            height: 40px;
+        }
+        
+        .outer-menu-item {
+            float: left;
+            position: relative;
+        }
+        .outer-menu-item:hover {
+            background: black;
+            color: white
+        }
+
+        .menu-title {
+            display: block;
+            height: 30px; line-height: 30px;
+            text-align: center;
+            padding: 5px 20px;
+        }
+
+        .inner-menu {
+            display: none;
+            position: absolute;
+            top: 40px; left: 0;
+            width: 100%;
+
+            background: white;
+            box-shadow: 0 2px 6px rgba(5, 5, 5, 0.9);
+            z-index: 1000;
+
+            text-align: center
+        }
+
+        .inner-menu-item > a {
+            display: block;
+            padding: 5px 10px;
+            color: black
+        }
+
+        .inner-menu-item > a:hover {
+            background: black;
+            color: rgb(120, 105, 145);
+        }
+
+    /* 네비게이션 내부의 검색 */
+
+        .search-bar {
+            height: 26px;
+            padding: 7px;
+        }
+        .input-search {
+            display: block;
+            float: left;
+
+            background-color: rgb(40, 36, 43);
+            border: 2px solid #433d50;
+            border-radius: 15px 0 0 15px;
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+
+            width: 120px; height: 24px;
+            padding: 0 0 0 10px;
+            font-size: 12px;
+            color: #555555;
+        }
+
+        .input-search:focus {
+            border-color: rgba(82, 168, 236, 0.8);
+            outline: 0;
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+        }
+
+        .input-search-submit {
+            display: block;
+            float: left;
+
+            width: 50px; height: 28px;
+            border-radius: 0 15px 15px 0;
+            border: 2px solid #433d50;
+            background-color: #786b85;
+
+            margin-left: -1px;
+
+            vertical-align: top;
+            display: inline-block;
+        }
+
+    /* 중앙  */
+
+        /* body 태그의 너비: 960픽셀 */
+        /* #page-wrapper 태그의 padding 속성으로 내용물 너비는 920픽셀 */
+        #content { overflow: hidden; }
+        #main-section {
+            float: left;
+            width: 710px;
+        }
+        #main-aside {
+            float: right;
+            width: 200px;
+        }
+
+    /* 좌측  */
+
+        article { 
+            padding: 0 10px 20px 10px;
+            border-bottom: 1px solid #C8C8C8;
+        }
+
+        .article-header { padding: 20px 0; }
+        .article-title { 
+            font-size: 25px;
+            font-weight: 500; 
+            padding-bottom: 10px;
+        }
+        .article-date { font-size: 13px; }
+        .article-body {
+            font-size: 14px; 
+        }
+        img {width: 50%; height: 50%;}
+
+    /* 우측  */
+
+        .aside-list { padding: 10px 0 30px 0; }
+        .aside-list > h3 {
+            font-size: 15px;
+            font-weight: 600;
+        }
+        .aside-list li a {
+            margin-left: 8px;
+            font-size: 13px;
+            color: #201a27;
+        }
+    </style>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.outer-menu-item').hover(function () {
+                $(this).find('.inner-menu').show();
+            }, function () {
+                $(this).find('.inner-menu').hide();
+            });
+        });
+    </script>
+</head>
+<body>
+    <div id="page-wrapper">
+        <header id="main-header">
+            <hgroup>
+                <h3 class="E">
+                <h1 class="master-title">APPLE</h1>
+                <h2 class="master-description">신은비</h2>
+                </h3>
+            </hgroup>
+        </header>
+        <nav id="main-navigation">
+            <div class="pull-left">
+                <ul class="outer-menu">
+                    <li class="outer-menu-item">
+                        <span class="menu-title">i phone</span>
+                        <ul class="inner-menu">
+                            <li class="inner-menu-item"><a href="">가자!</a></li>
+                        </ul>
+                    </li>
+                    <li class="outer-menu-item">
+                        <span class="menu-title">i pad</span>
+                        <ul class="inner-menu">
+                            <li class="inner-menu-item"><a href="">GO</a></li>
+                        </ul>
+                    </li>
+                    <li class="outer-menu-item">
+                        <span class="menu-title">i mac</span>
+                        <ul class="inner-menu">
+                            <li class="inner-menu-item"><a href="" target="_blank">GO</a></li>
+                        </ul>
+                    </li>
+                    <li class="outer-menu-item">
+                        <span class="menu-title">apple watch</span>
+                        <ul class="inner-menu">
+                            <li class="inner-menu-item"><a href="" target="_blank">GO</a></li>
+                        </ul>
+                    </li>
+                    <li class="outer-menu-item">
+                        <span class="menu-title">mac book</span>
+                        <ul class="inner-menu">
+                            <li class="inner-menu-item"><a href="" target="_blank">GO</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="pull-right">
+                <div class="search-bar">
+                    <form>
+                        <input type="text" class="input-search" />
+                        <input type="submit" class="input-search-submit" value="♥︎" />
+                    </form>
+                </div>
+            </div>
+        </nav>
+        <div id="content">
+            <section id="main-section">
+                <article>
+                    <div class="article-header">
+                        <h3 id=A>
+                        <h1 class="article-title">i phone 1세대</h1>
+                        <p class="article-date"></p>
+                    </div>
+                    <div class="article-body">
+                        <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=http%3A%2F%2Fcfile25.uf.tistory.com%2Fimage%2F99E761395DBFC0CA057938"></src>
+                        <br>
+                        <p>아이폰 1세대이다.</p>
+                        <p></p>
+                        <ul>
+
+                        </h3>
+                    </div>
+                </article>
+                <article>
+                    <div class="article-header">
+                        <h3 id=B>
+                        <h1 class="article-title">i phone</h1>
+                        <p class="article-date"></p>
+                    </div>
+                    <div class="article-body">
+                        <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=http%3A%2F%2Fcfile9.uf.tistory.com%2Fimage%2F9913AF505DBFC26C1F5011" />
+                    </div>
+                    </h3>
+                        <br>
+                        <br>
+                        <p></p>
+                        <br>
+                        <p></p>
+                </article>
+                <article>
+                    <div class="article-header">
+                        <h3 id=C>
+                        <h1 class="article-title"></h1>
+                        <p class="article-date"></p>
+                    </div>
+                    <div class="article-body">
+                        <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=http%3A%2F%2Fcfile27.uf.tistory.com%2Fimage%2F9987B1505DBFC5572BDE8D" />
+                        <br>
+                        <br>
+                        <p></p>
+                        <br>
+                        <p></p>
+                        </h3>
+                    </div>
+                </article>
+                <article>
+                    <div class="article-header">
+                        <h3 id=D>
+                        <h1 class="article-title"></h1>
+                        <p class="article-date"></p>
+                    </div>
+                    <div class="article-body">
+                        <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=http%3A%2F%2Fcfile1.uf.tistory.com%2Fimage%2F99C007345DBFC76A343B49" />
+                        <br>
+                        <br>
+                        <p></p>
+                        <br>
+                        <p></p>
+                        </h3>
+                    </div>
+                </article>
+                <article>
+                    <div class="article-header">
+                        <h3 id=D>
+                        <h1 class="article-title"></h1>
+                        <p class="article-date"></p>
+                    </div>
+                    <div class="article-body">
+                        <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=http%3A%2F%2Fcfile23.uf.tistory.com%2Fimage%2F9968D83E5DBFC8B934A3B6" />
+                        <br>
+                        <br>
+                        <p></p>
+                        <br>
+                        <p></p>
+                        </h3>
+                    </div>
+                </article>
+                <article>
+                    <div class="article-header">
+                        <h3 id=D>
+                        <h1 class="article-title"></h1>
+                        <p class="article-date"></p>
+                    </div>
+                    <div class="article-body">
+                        <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=http%3A%2F%2Fcfile21.uf.tistory.com%2Fimage%2F99CD914A5DBFCB0A0ABEEC" />
+                        <br>
+                        <br>
+                        <p></p>
+                        <br>
+                        <p></p>
+                        </h3>
+                    </div>
+                </article>
+                <article>
+                    <div class="article-header">
+                        <h3 id=D>
+                        <h1 class="article-title"></h1>
+                        <p class="article-date"></p>
+                    </div>
+                    <div class="article-body">
+                        <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=http%3A%2F%2Fcfile29.uf.tistory.com%2Fimage%2F99DDE9425DBFCDBC0472A2" />
+                        <br>
+                        <br>
+                        <p></p>
+                        <br>
+                        <p></p>
+                        </h3>
+                    </div>
+                </article>
+                <article>
+                    <div class="article-header">
+                        <h3 id=D>
+                        <h1 class="article-title"></h1>
+                        <p class="article-date"></p>
+                    </div>
+                    <div class="article-body">
+                        <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=http%3A%2F%2Fcfile24.uf.tistory.com%2Fimage%2F99B41B3C5DBFCFE8356994" />
+                        <br>
+                        <br>
+                        <p></p>
+                        <br>
+                        <p></p>
+                        </h3>
+                    </div>
+                </article>
+                <article>
+                    <div class="article-header">
+                        <h3 id=D>
+                        <h1 class="article-title"></h1>
+                        <p class="article-date"></p>
+                    </div>
+                    <div class="article-body">
+                        <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=http%3A%2F%2Fcfile30.uf.tistory.com%2Fimage%2F99C189425DBFD5F5185C0B" />
+                        <br>
+                        <br>
+                        <p></p>
+                        <br>
+                        <p></p>
+                        </h3>
+                    </div>
+                </article>
+                <article>
+                    <div class="article-header">
+                        <h3 id=D>
+                        <h1 class="article-title"></h1>
+                        <p class="article-date"></p>
+                    </div>
+                    <div class="article-body">
+                        <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=http%3A%2F%2Fcfile2.uf.tistory.com%2Fimage%2F99B8E6405DBFD79219B7F6" />
+                        <br>
+                        <br>
+                        <p></p>
+                        <br>
+                        <p></p>
+                        </h3>
+                    </div>
+                </article>
+                <article>
+                    <div class="article-header">
+                        <h3 id=D>
+                        <h1 class="article-title"></h1>
+                        <p class="article-date"></p>
+                    </div>
+                    <div class="article-body">
+                        <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=http%3A%2F%2Fcfile7.uf.tistory.com%2Fimage%2F99786F3F5DBFD9EA1FA44E" />
+                        <br>
+                        <br>
+                        <p></p>
+                        <br>
+                        <p></p>
+                        </h3>
+                    </div>
+                </article>
+                <article>
+                    <div class="article-header">
+                        <h3 id=D>
+                        <h1 class="article-title"></h1>
+                        <p class="article-date"></p>
+                    </div>
+                    <div class="article-body">
+                        <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=http%3A%2F%2Fcfile25.uf.tistory.com%2Fimage%2F990E77385DBFDB881D676E" />
+                        <br>
+                        <br>
+                        <p></p>
+                        <br>
+                        <p></p>
+                        </h3>
+                    </div>
+                </article>
+                <article>
+                    <div class="article-header">
+                        <h3 id=D>
+                        <h1 class="article-title"></h1>
+                        <p class="article-date"></p>
+                    </div>
+                    <div class="article-body">
+                        <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=http%3A%2F%2Fcfile6.uf.tistory.com%2Fimage%2F99E519445DBFDED8265234" />
+                        <br>
+                        <br>
+                        <p></p>
+                        <br>
+                        <p></p>
+                        </h3>
+                    </div>
+                </article>
+                <article>
+                    <div class="article-header">
+                        <h3 id=D>
+                        <h1 class="article-title"></h1>
+                        <p class="article-date"></p>
+                    </div>
+                    <div class="article-body">
+                        <img src="" />
+                        <br>
+                        <br>
+                        <p></p>
+                        <br>
+                        <p></p>
+                        </h3>
+                    </div>
+                </article>
+                <article>
+                    <div class="article-header">
+                        <h3 id=D>
+                        <h1 class="article-title"></h1>
+                        <p class="article-date"></p>
+                    </div>
+                    <div class="article-body">
+                        <img src="" />
+                        <br>
+                        <br>
+                        <p></p>
+                        <br>
+                        <p></p>
+                        </h3>
+                    </div>
+                </article>
+                <article>
+                    <div class="article-header">
+                        <h3 id=D>
+                        <h1 class="article-title"></h1>
+                        <p class="article-date"></p>
+                    </div>
+                    <div class="article-body">
+                        <img src="" />
+                        <br>
+                        <br>
+                        <p></p>
+                        <br>
+                        <p></p>
+                        </h3>
+                    </div>
+                </article>
+                <article>
+                    <div class="article-header">
+                        <h3 id=D>
+                        <h1 class="article-title"></h1>
+                        <p class="article-date"></p>
+                    </div>
+                    <div class="article-body">
+                        <img src="" />
+                        <br>
+                        <br>
+                        <p></p>
+                        <br>
+                        <p></p>
+                        </h3>
+                    </div>
+                </article>
+            </section>
+            <aside id="main-aside">
+                <div class="aside-list">
+                    <h3>카테고리</h3>
+                    <ul>
+                        <li><a href="#A"></a></li>
+                        <li><a href="#B"></a></li>
+                        <li><a href="#C"></a></li>
+                        <li><a href="#D"></a></li>
+                    </ul>
+                </div>
+                <div class="aside-list">
+                    <h3>최근 글</h3>
+                    <ul>
+                        <li><a href="#"></a></li>
+                        <li><a href="#"></a></li>
+                        <li><a href="#"></a></li>
+                        <li><a href="#"></a></li>
+                    </ul>
+                </div>
+            </aside>
+        </div>
+        <footer id="main-footer">
+            <a href="#E">Created By 은비</a>
+        </footer>
+    </div>
+</body>
+</html>
